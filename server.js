@@ -6,7 +6,8 @@ import newsletterRoutes from "./routes/newsletterRoutes.js";
 import submissionRoutes from "./routes/submissionRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
 dotenv.config();
-
+// Connect to DB
+connectDB();
 const app = express();
 
 // Middlewares
@@ -21,8 +22,7 @@ app.use("/api/contact", contactRoutes);
 // Health check
 app.get("/", (req, res) => res.send("API is running..."));
 
-// Connect to DB
-connectDB();
+
 
 // Global Error Handler (always return JSON)
 app.use((err, req, res, next) => {
